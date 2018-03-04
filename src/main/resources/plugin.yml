@@ -1,0 +1,12 @@
+name: PayExp
+main: be.huffle.payexp.PayExp
+version: 0.1.0
+commands:
+    payexp:
+        description: gives exp to another player
+        aliases: [payxp, giveexp, givexp, pxp, pexp]
+        usage: /payexp [player] [amount]
+    checkexp:
+        description: shows you how much exp you have
+        aliases: [checkxp, cxp, cexp]
+        usage: /checkexp
