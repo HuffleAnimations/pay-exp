@@ -1,5 +1,6 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
+apply plugin: 'idea'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -16,7 +17,7 @@ configurations.all {
 }
 
 dependencies {
-	implementation 'org.spigotmc:spigot-api:1.12.2-R0.1-SNAPSHOT'
+	implementation 'org.spigotmc:spigot-api:1.13.2-R0.1-SNAPSHOT'
 
 	testImplementation 'junit:junit:4.12'
 	testImplementation 'com.github.seeseemelk:MockBukkit:master-SNAPSHOT'

@@ -10,3 +10,8 @@ commands:
         description: shows you how much exp you have
         aliases: [checkxp, cxp, cexp]
         usage: /checkexp
+    bottlexp:
+        description: will give you an xp bottle, containing your xp
+        aliases: [bxp, bexp]
+        usage: /bottlexp [amount]
+api-version: 1.13
