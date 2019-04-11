@@ -10,10 +10,7 @@ import org.bukkit.block.Block;
 import org.bukkit.block.Dispenser;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Item;
-import org.bukkit.entity.Player;
-import org.bukkit.entity.Projectile;
-import org.bukkit.entity.ThrownExpBottle;
+import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockDispenseEvent;
@@ -126,28 +123,29 @@ public class PayExp extends JavaPlugin implements Listener
 	@EventHandler
 	public void onThrow(ProjectileLaunchEvent event)
 	{
-		ProjectileSource source = event.getEntity().getShooter();
+		Projectile entity = event.getEntity();
+		ProjectileSource source = ((Projectile) entity).getShooter();
 		if (source instanceof Player)
 		{
 			Player player = (Player)source;
 			ItemStack stack = itemStackMap.remove(player);
-			if (stack.getItemMeta().hasDisplayName())
-			{
-				int amount = Integer.parseInt(stack.getItemMeta().getDisplayName().substring(String.format("%s%sXP: ",
-						ChatColor.BOLD, ChatColor.GREEN).length()));
-				projectileIntegerMap.put(event.getEntity(), amount);
-			}
+			storeXPAmountForProjectile(stack, entity);
 		}
 		else if (source instanceof BlockProjectileSource)
 		{
 			Block block = ((BlockProjectileSource)source).getBlock();
 			ItemStack stack = blockItemStackMap.remove(block);
-			if (stack.getItemMeta().hasDisplayName())
-			{
-				int amount = Integer.parseInt(stack.getItemMeta().getDisplayName().substring(String.format("%s%sXP: ",
-						ChatColor.BOLD, ChatColor.GREEN).length()));
-				projectileIntegerMap.put(event.getEntity(), amount);
-			}
+			storeXPAmountForProjectile(stack, entity);
+		}
+	}
+
+	private void storeXPAmountForProjectile(ItemStack stack, Projectile entity)
+	{
+		if (stack != null && stack.hasItemMeta() && stack.getItemMeta().hasDisplayName())
+		{
+			int amount = Integer.parseInt(stack.getItemMeta().getDisplayName().substring(String.format("%s%sXP: ",
+					ChatColor.BOLD, ChatColor.GREEN).length()));
+			projectileIntegerMap.put(entity, amount);
 		}
 	}
 

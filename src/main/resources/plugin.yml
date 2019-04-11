@@ -1,6 +1,6 @@
 name: PayExp
 main: be.huffle.payexp.PayExp
-version: 0.2.0
+version: 0.2.1
 commands:
     payexp:
         description: gives exp to another player
