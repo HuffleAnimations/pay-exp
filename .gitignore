@@ -3,9 +3,7 @@
 !.gitignore
 /bin/
 /build/
-/PayExp.jar
-PayExp.iml
-PayExp.ipr
-PayExp.iws
-PayExp.main.iml
-PayExp.test.iml
+/*.jar
+*.iml
+*.ipr
+*.iws

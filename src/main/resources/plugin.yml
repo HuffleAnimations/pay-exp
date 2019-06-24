@@ -1,6 +1,6 @@
 name: PayExp
 main: be.huffle.payexp.PayExp
-version: 0.2.1
+version: 1.0.0
 commands:
     payexp:
         description: gives exp to another player
@@ -14,4 +14,5 @@ commands:
         description: will give you an xp bottle, containing your xp
         aliases: [bxp, bexp]
         usage: /bottlexp [amount]
-api-version: 1.13
+        permission: payexp.bottlexp
+api-version: 1.14
